@@ -1,0 +1,8 @@
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\bin\Debug\AppBanco.exe.config
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\bin\Debug\AppBanco.exe
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\bin\Debug\AppBanco.pdb
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\obj\Debug\AppBanco.csproj.AssemblyReference.cache
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\obj\Debug\AppBanco.csproj.SuggestedBindingRedirects.cache
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\obj\Debug\AppBanco.csproj.CoreCompileInputs.cache
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\obj\Debug\AppBanco.exe
+C:\Users\3ds\Downloads\LisMat\AppQuinta\AppBanco\obj\Debug\AppBanco.pdb
