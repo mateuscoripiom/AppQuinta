@@ -11,6 +11,9 @@ namespace AppBanco
     {
         static void Main(string[] args)
         {
+            Banco db = new Banco();
+            db.Open();
+
             MySqlConnection Conexao = new MySqlConnection(@"Server = Localhost; database = dbAppBanco; user = root; password = 12345678");
             Conexao.Open();
 
@@ -39,14 +42,13 @@ namespace AppBanco
             ObjCommandI.ExecuteNonQuery();
 
             string strSelect = "select * from tbUsuario;";
-            MySqlCommand ObjCommand = new MySqlCommand(strSelect, Conexao);
+
 
             //ObjCommand.CommandText = "select * from tbUsuario;";
             //ObjCommand.CommandType = System.Data.CommandType.Text;
             //ObjCommand.Connection = Conexao;
 
-            MySqlDataReader leitor = ObjCommand.ExecuteReader();
-
+            MySqlDataReader leitor = db.ExecuteReadSql(strSelect);
             while (leitor.Read())
             {
                 Console.WriteLine("Código = {0} | Nome= {1} | Cargo = {2} | Nascimento = {3}",
@@ -54,6 +56,8 @@ namespace AppBanco
             }
             leitor.Close();
             Console.ReadLine(); 
+
+
 
         }
     }
