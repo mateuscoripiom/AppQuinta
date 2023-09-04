@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,21 +27,19 @@ namespace AppBanco
             Console.WriteLine("Informe a data de nascimento: ");
             string strDataNasc = Console.ReadLine();
 
+            db.Open();
             string strInsert = string.Format("insert into tbUsuario(NomeUsu, Cargo, DataNasc)" +
                                              "values('{0}', '{1}', STR_TO_DATE('{2}', '%d/%m/%Y'));", strNomeUsu, strCargo, strDataNasc);
+            db.ExecuteNowdSql(strInsert);
 
             string strUpdate = "update tbUsuario set NomeUsu = 'João' where IdUsu = 4;";
-            MySqlCommand ObjCommandU = new MySqlCommand(strUpdate, Conexao);
-            ObjCommandU.ExecuteNonQuery();
+            db.ExecuteNowdSql(strUpdate);
 
             string strDelete = "delete from tbUsuario where IdUsu = 3;";
-            MySqlCommand ObjCommandD = new MySqlCommand(strDelete, Conexao);
-            ObjCommandD.ExecuteNonQuery();
+            db.ExecuteNowdSql(strDelete);
+            db.Close();
 
-            //string strInsert = "insert into tbUsuario(NomeUsu, Cargo, DataNasc) values ('Fulano', 'Aluno', '2023/05/10');";
-            MySqlCommand ObjCommandI = new MySqlCommand(strInsert, Conexao);
-            ObjCommandI.ExecuteNonQuery();
-
+            db.Open();
             string strSelect = "select * from tbUsuario;";
 
 
@@ -55,6 +54,10 @@ namespace AppBanco
                     leitor["IdUsu"], leitor["NomeUsu"], leitor["Cargo"],leitor["DataNasc"]);
             }
             leitor.Close();
+
+
+
+            db.Open();
             Console.ReadLine(); 
 
 
