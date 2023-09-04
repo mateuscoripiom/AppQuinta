@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppBanco
 {
@@ -55,12 +50,15 @@ namespace AppBanco
             }
             leitor.Close();
 
+            Console.WriteLine("Informe o ID para identificação: ");
+            string IdUsu = Console.ReadLine();
+            string strSelectId = "select NomeUsu from tbUsuario where IdUsu =" + IdUsu + ";";
+            string strDado = db.ExecuteScalarSql(strSelectId);
+            Console.WriteLine("Olá senhor(a) " + strDado);
 
 
             db.Open();
             Console.ReadLine(); 
-
-
 
         }
     }
