@@ -8,6 +8,7 @@ namespace AppBanco
         static void Main(string[] args)
         {
             Banco db = new Banco();
+            UsuarioDAO ObjDao = new UsuarioDAO();
             db.Open();
 
             MySqlConnection Conexao = new MySqlConnection(@"Server = Localhost; database = dbAppBanco; user = root; password = 12345678");
@@ -19,14 +20,15 @@ namespace AppBanco
             Console.WriteLine("Digite o cargo: ");
             string strCargo = Console.ReadLine();
 
+            Console.WriteLine("Digite o Id: ");
+            string strIdUsu = Console.ReadLine();
+
             Console.WriteLine("Informe a data de nascimento: ");
             string strDataNasc = Console.ReadLine();
 
             db.Open();
-            string strInsert = string.Format("insert into tbUsuario(NomeUsu, Cargo, DataNasc)" +
-                                             "values('{0}', '{1}', STR_TO_DATE('{2}', '%d/%m/%Y'));", strNomeUsu, strCargo, strDataNasc);
-            db.ExecuteNowdSql(strInsert);
-
+            ObjDao.Insert(strNomeUsu, strCargo, strDataNasc);
+            
             string strUpdate = "update tbUsuario set NomeUsu = 'João' where IdUsu = 4;";
             db.ExecuteNowdSql(strUpdate);
 
@@ -36,6 +38,7 @@ namespace AppBanco
 
             db.Open();
             string strSelect = "select * from tbUsuario;";
+ 
 
 
             //ObjCommand.CommandText = "select * from tbUsuario;";
