@@ -4,7 +4,7 @@ using System.Configuration;
 
 namespace AppBanco
 {
-    internal class Banco
+    public class Banco
     {
         private readonly MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexao"].ConnectionString);
         private readonly MySqlCommand cmd = new MySqlCommand();
